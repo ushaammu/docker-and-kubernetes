@@ -1,0 +1,305 @@
+                                                                        
+tlxp@ip-172-31-36-73:~$ curl -LO https://dl.k8s.io/release/$(curl -L -s 
+https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl 
+curl: no URL specified!
+curl: try 'curl --help' or 'curl --manual' for more information
+-bash: https://dl.k8s.io/release/stable.txt: No such file or directory
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   138  100   138    0     0    408      0 --:--:-- --:--:-- --:--:--   408
+100   238  100   238    0     0    328      0 --:--:-- --:--:-- --:--:--   328
+tlxp@ip-172-31-36-73:~$ curl -LO https://dl.k8s.io/release/$(curl -L -s 
+https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256 
+curl: no URL specified!
+curl: try 'curl --help' or 'curl --manual' for more information
+-bash: https://dl.k8s.io/release/stable.txt: No such file or directory
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   138  100   138    0     0    411      0 --:--:-- --:--:-- --:--:--   410
+100   245  100   245    0     0    351      0 --:--:-- --:--:-- --:--:--   351
+tlxp@ip-172-31-36-73:~$ echo "$(cat kubectl.sha256)  kubectl" | sha256sum –check~
+sha256sum: –check~: No such file or directory
+tlxp@ip-172-31-36-73:~$ ^C
+tlxp@ip-172-31-36-73:~$ echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+sha256sum: 'standard input': no properly formatted SHA256 checksum lines found
+tlxp@ip-172-31-36-73:~$ ^C
+tlxp@ip-172-31-36-73:~$ echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+sha256sum: 'standard input': no properly formatted SHA256 checksum lines found
+tlxp@ip-172-31-36-73:~$ ^C
+tlxp@ip-172-31-36-73:~$ # Download kubectl
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+# Download the SHA256 checksum
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   138  100   138    0     0    417      0 --:--:-- --:--:-- --:--:--   418
+100 55.8M  100 55.8M    0     0  65.0M      0 --:--:-- --:--:-- --:--:--  145M
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   138  100   138    0     0    423      0 --:--:-- --:--:-- --:--:--   423
+100    64  100    64    0     0    161      0 --:--:-- --:--:-- --:--:--   161
+tlxp@ip-172-31-36-73:~$ ls -l kubectl kubectl.sha256
+-rw-rw-r-- 1 tlxp tlxp 58597560 Dec 31 06:08 kubectl
+-rw-rw-r-- 1 tlxp tlxp       64 Dec 31 06:08 kubectl.sha256
+tlxp@ip-172-31-36-73:~$ cat kubectl.sha256
+a2e984a18a0c063279d692533031c1eff93a262afcc0afdc517375432d060989tlxp@ip-172-31-36-73:~$ echo "$(cat kubectl.sha256)  kubectl" | sha256sum echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+kubectl: OK
+tlxp@ip-172-31-36-73:~$ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+[sudo] password for tlxp: 
+tlxp@ip-172-31-36-73:~$ kubectlversion --client
+kubectlversion: command not found
+tlxp@ip-172-31-36-73:~$ kubectl version --client
+Client Version: v1.35.0
+Kustomize Version: v5.7.1
+tlxp@ip-172-31-36-73:~$ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+tlxp@ip-172-31-36-73:~$ kubectl version --client --output=yaml 
+clientVersion:
+  buildDate: "2025-12-17T12:41:05Z"
+  compiler: gc
+  gitCommit: 66452049f3d692768c39c797b21b793dce80314e
+  gitTreeState: clean
+  gitVersion: v1.35.0
+  goVersion: go1.25.5
+  major: "1"
+  minor: "35"
+  platform: linux/amd64
+kustomizeVersion: v5.7.1
+
+tlxp@ip-172-31-36-73:~$ kubectl get nodes
+E1231 06:12:09.916418    5533 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: the server could not find the requested resource"
+E1231 06:12:09.917911    5533 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: the server could not find the requested resource"
+E1231 06:12:09.919376    5533 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: the server could not find the requested resource"
+E1231 06:12:09.920774    5533 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: the server could not find the requested resource"
+E1231 06:12:09.922264    5533 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: the server could not find the requested resource"
+Error from server (NotFound): the server could not find the requested resource
+tlxp@ip-172-31-36-73:~$ ^C
+tlxp@ip-172-31-36-73:~$ kubectl config get-contexts
+kubectl config current-context
+CURRENT   NAME   CLUSTER   AUTHINFO   NAMESPACE
+error: current-context is not set
+tlxp@ip-172-31-36-73:~$ kubectl config get-contexts
+CURRENT   NAME   CLUSTER   AUTHINFO   NAMESPACE
+tlxp@ip-172-31-36-73:~$ kubectl config current-context
+error: current-context is not set
+tlxp@ip-172-31-36-73:~$ ^C
+tlxp@ip-172-31-36-73:~$ # Download Minikube binary
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+
+# Make it executable
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+# Verify
+minikube version
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+ 60  133M   60 81.2M    0     0  10.4M      0  0:00:12  0:00:07  0:00:05 14.5M
+ 85  133M   85  114M    0     0  11.7M      0  0:00:11  0:00:09  0:00:02 16.1M
+
+
+100  133M  100  133M    0     0  12.3M      0  0:00:10  0:00:10 --:--:-- 16.7M
+
+
+
+
+minikube version: v1.37.0
+commit: 65318f4cfff9c12cc87ec9eb8f4cdd57b25047f3
+tlxp@ip-172-31-36-73:~$ ^C
+tlxp@ip-172-31-36-73:~$ minikube start --driver=docker
+😄  minikube v1.37.0 on Ubuntu 22.04 (xen/amd64)
+✨  Using the docker driver based on user configuration
+
+🧯  The requested memory allocation of 3072MiB does not leave room for system overhead (total system memory: 3912MiB). You may face stability issues.
+💡  Suggestion: Start minikube with less memory allocated: 'minikube start --memory=3072mb'
+
+📌  Using Docker driver with root privileges
+👍  Starting "minikube" primary control-plane node in "minikube" cluster
+🚜  Pulling base image v0.0.48 ...
+💾  Downloading Kubernetes v1.34.0 preload ...
+    > gcr.io/k8s-minikube/kicbase...:  488.51 MiB / 488.52 MiB  100.00% 23.56 M
+    > preloaded-images-k8s-v18-v1...:  337.07 MiB / 337.07 MiB  100.00% 15.14 M
+🔥  Creating docker container (CPUs=2, Memory=3072MB) ...
+🐳  Preparing Kubernetes v1.34.0 on Docker 28.4.0 ...
+🔗  Configuring bridge CNI (Container Networking Interface) ...
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟  Enabled addons: storage-provisioner, default-storageclass
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+tlxp@ip-172-31-36-73:~$ minikube update-context
+kubectl config use-context minikube
+kubectl config current-context
+🙄  No changes required for the "minikube" context
+💗  Current context is "minikube"
+Switched to context "minikube".
+minikube
+tlxp@ip-172-31-36-73:~$ kubectl get nodes
+kubectl get pods --all-namespaces
+NAME       STATUS   ROLES           AGE   VERSION
+minikube   Ready    control-plane   44s   v1.34.0
+NAMESPACE     NAME                               READY   STATUS    RESTARTS   AGE
+kube-system   coredns-66bc5c9577-7zhqs           0/1     Running   0          36s
+kube-system   etcd-minikube                      1/1     Running   0          42s
+kube-system   kube-apiserver-minikube            1/1     Running   0          43s
+kube-system   kube-controller-manager-minikube   1/1     Running   0          42s
+kube-system   kube-proxy-tw8m4                   1/1     Running   0          36s
+kube-system   kube-scheduler-minikube            1/1     Running   0          43s
+kube-system   storage-provisioner                1/1     Running   0          40s
+tlxp@ip-172-31-36-73:~$ kubectl run testpod --image=nginx --restart=Never
+kubectl get pods
+kubectl describe pod testpod
+pod/testpod created
+NAME      READY   STATUS              RESTARTS   AGE
+testpod   0/1     ContainerCreating   0          0s
+Name:             testpod
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Wed, 31 Dec 2025 06:16:52 +0000
+Labels:           run=testpod
+Annotations:      <none>
+Status:           Pending
+IP:               
+IPs:              <none>
+Containers:
+  testpod:
+    Container ID:   
+    Image:          nginx
+    Image ID:       
+    Port:           <none>
+    Host Port:      <none>
+    State:          Waiting
+      Reason:       ContainerCreating
+    Ready:          False
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-xrg6v (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   False 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-xrg6v:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  0s    default-scheduler  Successfully assigned default/testpod to minikube
+tlxp@ip-172-31-36-73:~$ kubectl get pods -A 
+NAMESPACE     NAME                               READY   STATUS    RESTARTS   AGE
+default       testpod                            1/1     Running   0          36s
+kube-system   coredns-66bc5c9577-7zhqs           1/1     Running   0          85s
+kube-system   etcd-minikube                      1/1     Running   0          91s
+kube-system   kube-apiserver-minikube            1/1     Running   0          92s
+kube-system   kube-controller-manager-minikube   1/1     Running   0          91s
+kube-system   kube-proxy-tw8m4                   1/1     Running   0          85s
+kube-system   kube-scheduler-minikube            1/1     Running   0          92s
+kube-system   storage-provisioner                1/1     Running   0          89s
+tlxp@ip-172-31-36-73:~$ kubectl get pods -o wide --all-namespaces 
+NAMESPACE     NAME                               READY   STATUS    RESTARTS   AGE    IP             NODE       NOMINATED NODE   READINESS GATES
+default       testpod                            1/1     Running   0          51s    10.244.0.3     minikube   <none>           <none>
+kube-system   coredns-66bc5c9577-7zhqs           1/1     Running   0          100s   10.244.0.2     minikube   <none>           <none>
+kube-system   etcd-minikube                      1/1     Running   0          106s   192.168.49.2   minikube   <none>           <none>
+kube-system   kube-apiserver-minikube            1/1     Running   0          107s   192.168.49.2   minikube   <none>           <none>
+kube-system   kube-controller-manager-minikube   1/1     Running   0          106s   192.168.49.2   minikube   <none>           <none>
+kube-system   kube-proxy-tw8m4                   1/1     Running   0          100s   192.168.49.2   minikube   <none>           <none>
+kube-system   kube-scheduler-minikube            1/1     Running   0          107s   192.168.49.2   minikube   <none>           <none>
+kube-system   storage-provisioner                1/1     Running   0          104s   192.168.49.2   minikube   <none>           <none>
+tlxp@ip-172-31-36-73:~$ alias k=kubectl
+tlxp@ip-172-31-36-73:~$ minikube   Ready    control-plane   1m    v1.33.x 
+Error: unknown command "Ready" for "minikube"
+Run 'minikube --help' for usage.
+tlxp@ip-172-31-36-73:~$ ^C
+tlxp@ip-172-31-36-73:~$ ^C
+tlxp@ip-172-31-36-73:~$ cat ~/yaml_files/my-5gc-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-5gc-pod
+  labels:
+    app: my-5gc
+spec:
+  containers:
+    - name: my-5gc-container
+      image: nginx:latest
+      ports:
+        - containerPort: 80tlxp@ip-172-31-36-73:~$ kubectl apply -f ~/yaml_files/my-5gc-pod
+error: the path "/home/tlxp/yaml_files/my-5gc-pod" does not exist
+tlxp@ip-172-31-36-73:~$ kubectl apply -f ~/yaml_files/my-5gc-pod.yaml
+pod/my-5gc-pod created
+tlxp@ip-172-31-36-73:~$ kubectl get pods
+NAME         READY   STATUS    RESTARTS   AGE
+my-5gc-pod   1/1     Running   0          9s
+testpod      1/1     Running   0          4m13s
+tlxp@ip-172-31-36-73:~$ kubectl describe pod my-5gc-pod
+Name:             my-5gc-pod
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Wed, 31 Dec 2025 06:20:56 +0000
+Labels:           app=my-5gc
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.4
+IPs:
+  IP:  10.244.0.4
+Containers:
+  my-5gc-container:
+    Container ID:   docker://e4889e8b9fe02bec80b206bd4c89f8bfcacc9cec34576c77d75cd231ef329edc
+    Image:          nginx:latest
+    Image ID:       docker-pullable://nginx@sha256:ca871a86d45a3ec6864dc45f014b11fe626145569ef0e74deaffc95a3b15b430
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Wed, 31 Dec 2025 06:20:58 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-csn7c (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-csn7c:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  29s   default-scheduler  Successfully assigned default/my-5gc-pod to minikube
+  Normal  Pulling    29s   kubelet            spec.containers{my-5gc-container}: Pulling image "nginx:latest"
+  Normal  Pulled     27s   kubelet            spec.containers{my-5gc-container}: Successfully pulled image "nginx:latest" in 1.814s (1.814s including waiting). Image size: 151914258 bytes.
+  Normal  Created    27s   kubelet            spec.containers{my-5gc-container}: Created container: my-5gc-container
+  Normal  Started    27s   kubelet            spec.containers{my-5gc-container}: Started container my-5gc-container
+tlxp@ip-172-31-36-73:~$ kubectl exec -it my-5gc-pod
+error: you must specify at least one command for the container
+tlxp@ip-172-31-36-73:~$ kubectl exec -it my-5gc-pod -- /bin/bash
+root@my-5gc-pod:/# hostname
+my-5gc-pod
+root@my-5gc-pod:/# exit
+exit
