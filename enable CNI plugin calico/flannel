@@ -1,0 +1,240 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\USHA CT> kubectl config current-context
+>> 
+minikube
+PS C:\Users\USHA CT> 
+PS C:\Users\USHA CT> & "$HOME\bin\minikube.exe" start --driver=docker
+>> 
+* minikube v1.37.0 on Microsoft Windows 11 Home Single Language 10.0.26200.7462 Build 26200.7462
+* Using the docker driver based on existing profile
+* Starting "minikube" primary control-plane node in "minikube" cluster
+* Pulling base image v0.0.48 ...
+* Restarting existing docker container for "minikube" ...  
+! Failing to connect to https://registry.k8s.io/ from inside the minikube container
+* To pull new external images, you may need to configure a proxy: https://minikube.sigs.k8s.io/docs/reference/networking/proxy/
+* Preparing Kubernetes v1.34.0 on Docker 28.4.0 ...  
+* Verifying Kubernetes components...
+  - Using image docker.io/kubernetesui/metrics-scraper:v1.0.8
+  - Using image docker.io/kubernetesui/dashboard:v2.7.0
+  - Using image gcr.io/k8s-minikube/storage-provisioner:v5
+* Some dashboard features require the metrics-server addon. To enable all features please run:
+
+        minikube addons enable metrics-server
+
+* Enabled addons: default-storageclass, storage-provisioner, dashboard
+* Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+PS C:\Users\USHA CT> & "$HOME\bin\minikube.exe" start --cni=calico
+>>
+* minikube v1.37.0 on Microsoft Windows 11 Home Single Language 10.0.26200.7462 Build 26200.7462
+* Using the docker driver based on existing profile
+* Starting "minikube" primary control-plane node in "minikube" cluster
+* Pulling base image v0.0.48 ...
+* Updating the running docker "minikube" container ...  
+! Failing to connect to https://registry.k8s.io/ from inside the minikube container
+* To pull new external images, you may need to configure a proxy: https://minikube.sigs.k8s.io/docs/reference/networking/proxy/
+* Preparing Kubernetes v1.34.0 on Docker 28.4.0 ...  
+* Verifying Kubernetes components...
+  - Using image docker.io/kubernetesui/dashboard:v2.7.0
+  - Using image docker.io/kubernetesui/metrics-scraper:v1.0.8
+  - Using image gcr.io/k8s-minikube/storage-provisioner:v5
+* Some dashboard features require the metrics-server addon. To enable all features please run:
+
+        minikube addons enable metrics-server
+
+* Enabled addons: storage-provisioner, default-storageclass, dashboard
+* Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+PS C:\Users\USHA CT> & "$HOME\bin\minikube.exe" start --cni=calico
+>>
+* minikube v1.37.0 on Microsoft Windows 11 Home Single Language 10.0.26200.7462 Build 26200.7462
+* Using the docker driver based on existing profile
+* Starting "minikube" primary control-plane node in "minikube" cluster
+* Pulling base image v0.0.48 ...
+* Updating the running docker "minikube" container ...  
+! Failing to connect to https://registry.k8s.io/ from inside the minikube container
+* To pull new external images, you may need to configure a proxy: https://minikube.sigs.k8s.io/docs/reference/networking/proxy/
+* Preparing Kubernetes v1.34.0 on Docker 28.4.0 ...  
+* Verifying Kubernetes components...
+  - Using image docker.io/kubernetesui/dashboard:v2.7.0
+  - Using image docker.io/kubernetesui/metrics-scraper:v1.0.8
+  - Using image gcr.io/k8s-minikube/storage-provisioner:v5
+* Some dashboard features require the metrics-server addon. To enable all features please run:
+
+        minikube addons enable metrics-server
+
+* Enabled addons: storage-provisioner, dashboard, default-storageclass
+* Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+PS C:\Users\USHA CT> & "$HOME\bin\minikube.exe" start --cni=flannel
+>>
+* minikube v1.37.0 on Microsoft Windows 11 Home Single Language 10.0.26200.7462 Build 26200.7462
+* Using the docker driver based on existing profile
+* Starting "minikube" primary control-plane node in "minikube" cluster
+* Pulling base image v0.0.48 ...
+* Updating the running docker "minikube" container ...  
+! Failing to connect to https://registry.k8s.io/ from both inside the minikube container and host machine
+* To pull new external images, you may need to configure a proxy: https://minikube.sigs.k8s.io/docs/reference/networking/proxy/
+* Preparing Kubernetes v1.34.0 on Docker 28.4.0 ...  
+* Verifying Kubernetes components...
+  - Using image gcr.io/k8s-minikube/storage-provisioner:v5
+  - Using image docker.io/kubernetesui/dashboard:v2.7.0
+  - Using image docker.io/kubernetesui/metrics-scraper:v1.0.8
+* Some dashboard features require the metrics-server addon. To enable all features please run:
+
+        minikube addons enable metrics-server
+
+* Enabled addons: storage-provisioner, dashboard, default-storageclass
+* Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+PS C:\Users\USHA CT> & "$HOME\bin\minikube.exe" status
+>>
+minikube
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
+
+PS C:\Users\USHA CT> & "$HOME\bin\minikube.exe" dashboard
+>>
+* Verifying dashboard health ...
+* Launching proxy ...
+* Verifying proxy health ...
+* Opening http://127.0.0.1:60614/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+PS C:\Users\USHA CT> & "$HOME\bin\minikube.exe" start --network-plugin=cni --cni=calico
+* minikube v1.37.0 on Microsoft Windows 11 Home Single Language 10.0.26200.7462 Build 26200.7462
+* Using the docker driver based on existing profile
+* Starting "minikube" primary control-plane node in "minikube" cluster
+* Pulling base image v0.0.48 ...
+* Updating the running docker "minikube" container ...  
+! Failing to connect to https://registry.k8s.io/ from inside the minikube container
+* To pull new external images, you may need to configure a proxy: https://minikube.sigs.k8s.io/docs/reference/networking/proxy/
+* Preparing Kubernetes v1.34.0 on Docker 28.4.0 ...  
+* Verifying Kubernetes components...
+  - Using image gcr.io/k8s-minikube/storage-provisioner:v5
+  - Using image docker.io/kubernetesui/metrics-scraper:v1.0.8
+  - Using image docker.io/kubernetesui/dashboard:v2.7.0
+* Some dashboard features require the metrics-server addon. To enable all features please run:
+
+        minikube addons enable metrics-server
+
+* Enabled addons: default-storageclass, storage-provisioner, dashboard
+X Problems detected in kubelet:
+  Jan 01 14:43:32 minikube kubelet[1360]: E0101 14:43:32.572702    1360 status_manager.go:1018] "Failed to get status for pod" err="pods \"kube-proxy-mjlq5\" is forbidden: User \"system:node:minikube\" cannot get resource \"pods\" in API group \"\" in the namespace \"kube-system\": no relationship found between node 'minikube' and this object" podUID="dd22482c-39ab-4240-aca1-ef8905e0ca17" pod="kube-system/kube-proxy-mjlq5"      
+  Jan 01 14:43:32 minikube kubelet[1360]: E0101 14:43:32.654976    1360 status_manager.go:1018] "Failed to get status for pod" err="pods \"coredns-66bc5c9577-p8jkf\" is forbidden: User \"system:node:minikube\" cannot get resource \"pods\" in API group \"\" in the namespace \"kube-system\": no relationship found between node 'minikube' and this object" podUID="d7b45ac5-5d8f-4cf4-93bc-56b26490ea9f" pod="kube-system/coredns-66bc5c9577-p8jkf"
+  Jan 01 14:43:32 minikube kubelet[1360]:         pods "my-pod" is forbidden: User "system:node:minikube" cannot get resource "pods" in API group "" in the namespace "default": no relationship found between node 'minikube' and this object
+  Jan 01 14:43:32 minikube kubelet[1360]:         pods "kube-scheduler-minikube" is forbidden: User "system:node:minikube" cannot get resource "pods" in API group "" in the namespace "kube-system": no relationship found between node 'minikube' and this object
+  Jan 01 14:43:32 minikube kubelet[1360]:         pods "kube-apiserver-minikube" is forbidden: User "system:node:minikube" cannot get resource "pods" in API group "" in the namespace "kube-system": no relationship found between node 'minikube' and this object
+X Problems detected in kubelet:
+  Jan 01 14:43:32 minikube kubelet[1360]: E0101 14:43:32.572702    1360 status_manager.go:1018] "Failed to get status for pod" err="pods \"kube-proxy-mjlq5\" is forbidden: User \"system:node:minikube\" cannot get resource \"pods\" in API group \"\" in the namespace \"kube-system\": no relationship found between node 'minikube' and this object" podUID="dd22482c-39ab-4240-aca1-ef8905e0ca17" pod="kube-system/kube-proxy-mjlq5"      
+  Jan 01 14:43:32 minikube kubelet[1360]: E0101 14:43:32.654976    1360 status_manager.go:1018] "Failed to get status for pod" err="pods \"coredns-66bc5c9577-p8jkf\" is forbidden: User \"system:node:minikube\" cannot get resource \"pods\" in API group \"\" in the namespace \"kube-system\": no relationship found between node 'minikube' and this object" podUID="d7b45ac5-5d8f-4cf4-93bc-56b26490ea9f" pod="kube-system/coredns-66bc5c9577-p8jkf"
+  Jan 01 14:43:32 minikube kubelet[1360]:         pods "my-pod" is forbidden: User "system:node:minikube" cannot get resource "pods" in API group "" in the namespace "default": no relationship found between node 'minikube' and this object
+  Jan 01 14:43:32 minikube kubelet[1360]:         pods "kube-scheduler-minikube" is forbidden: User "system:node:minikube" cannot get resource "pods" in API group "" in the namespace "kube-system": no relationship found between node 'minikube' and this object
+  Jan 01 14:43:32 minikube kubelet[1360]:         pods "kube-apiserver-minikube" is forbidden: User "system:node:minikube" cannot get resource "pods" in API group "" in the namespace "kube-system": no relationship found between node 'minikube' and this object
+X Problems detected in kubelet:
+  Jan 01 14:43:32 minikube kubelet[1360]: E0101 14:43:32.572702    1360 status_manager.go:1018] "Failed to get status for pod" err="pods \"kube-proxy-mjlq5\" is forbidden: User \"system:node:minikube\" cannot get resource \"pods\" in API group \"\" in the namespace \"kube-system\": no relationship found between node 'minikube' and this object" podUID="dd22482c-39ab-4240-aca1-ef8905e0ca17" pod="kube-system/kube-proxy-mjlq5"      
+  Jan 01 14:43:32 minikube kubelet[1360]: E0101 14:43:32.654976    1360 status_manager.go:1018] "Failed to get status for pod" err="pods \"coredns-66bc5c9577-p8jkf\" is forbidden: User \"system:node:minikube\" cannot get resource \"pods\" in API group \"\" in the namespace \"kube-system\": no relationship found between node 'minikube' and this object" podUID="d7b45ac5-5d8f-4cf4-93bc-56b26490ea9f" pod="kube-system/coredns-66bc5c9577-p8jkf"
+  Jan 01 14:43:32 minikube kubelet[1360]:         pods "my-pod" is forbidden: User "system:node:minikube" cannot get resource "pods" in API group "" in the namespace "default": no relationship found between node 'minikube' and this object
+  Jan 01 14:43:32 minikube kubelet[1360]:         pods "kube-scheduler-minikube" is forbidden: User "system:node:minikube" cannot get resource "pods" in API group "" in the namespace "kube-system": no relationship found between node 'minikube' and this object
+  Jan 01 14:43:32 minikube kubelet[1360]:         pods "kube-apiserver-minikube" is forbidden: User "system:node:minikube" cannot get resource "pods" in API group "" in the namespace "kube-system": no relationship found between node 'minikube' and this object
+* Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+PS C:\Users\USHA CT> 
+PS C:\Users\USHA CT> kubectl get pods -n kube-system
+NAME                               READY   STATUS             RESTARTS        AGE
+coredns-66bc5c9577-p8jkf           1/1     Running            5 (2m41s ago)   21h
+etcd-minikube                      1/1     Running            5 (2m39s ago)   21h
+kube-apiserver-minikube            1/1     Running            5 (2m36s ago)   21h
+kube-controller-manager-minikube   0/1     CrashLoopBackOff   5 (2m47s ago)   21h
+kube-proxy-mjlq5                   1/1     Running            5 (2m46s ago)   21h
+kube-scheduler-minikube            1/1     Running            5 (2m46s ago)   21h
+storage-provisioner                0/1     CrashLoopBackOff   6 (2m46s ago)   21h
+PS C:\Users\USHA CT> kubectl get ds -n kube-system
+NAME         DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+kube-proxy   1         1         1       1            1           kubernetes.io/os=linux   21h
+PS C:\Users\USHA CT> kubectl get pods --namespace=kube-system
+NAME                               READY   STATUS             RESTARTS        AGE
+coredns-66bc5c9577-p8jkf           1/1     Running            5 (4m6s ago)    21h
+etcd-minikube                      1/1     Running            5 (4m4s ago)    21h
+kube-apiserver-minikube            1/1     Running            5 (4m1s ago)    21h
+kube-controller-manager-minikube   1/1     Running            6 (4m12s ago)   21h
+kube-proxy-mjlq5                   1/1     Running            5 (4m11s ago)   21h
+kube-scheduler-minikube            1/1     Running            5 (4m11s ago)   21h
+storage-provisioner                0/1     CrashLoopBackOff   6 (4m11s ago)   21h
+PS C:\Users\USHA CT> kubectl get nodes
+NAME       STATUS   ROLES           AGE   VERSION
+minikube   Ready    control-plane   21h   v1.34.0
+PS C:\Users\USHA CT> ^C
+PS C:\Users\USHA CT> kubectl get pods -o wide
+NAME                          READY   STATUS             RESTARTS        AGE   IP            NODE       NOMINATED NODE   READINESS GATES
+hello-node-7965466795-ppf82   0/1     ImagePullBackOff   0               21h   10.244.0.34   minikube   <none>           <none>
+my-pod                        1/1     Running            5 (5m35s ago)   21h   10.244.0.30   minikube   <none>           <none>
+PS C:\Users\USHA CT> kubectl get nodes -o wide 
+NAME       STATUS   ROLES           AGE   VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION                     CONTAINER-RUNTIME
+minikube   Ready    control-plane   21h   v1.34.0   192.168.49.2   <none>        Ubuntu 22.04.5 LTS   6.6.87.2-microsoft-standard-WSL2   docker://28.4.0
+PS C:\Users\USHA CT> kubectl get svc
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   21h
+PS C:\Users\USHA CT> kubectl get ep
+Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice
+NAME         ENDPOINTS           AGE
+kubernetes   192.168.49.2:8443   21h
+PS C:\Users\USHA CT> kubectl run tracer --image=busybox -it --rm --sh
+error: unknown flag: --sh
+See 'kubectl run --help' for usage.
+PS C:\Users\USHA CT> ^C
+PS C:\Users\USHA CT> kubectl run tracer --image=busybox -it --rm -- sh
+>>
+All commands and output from this session will be recorded in container logs, including credentials and sensitive information passed through the command prompt.
+If you don't see a command prompt, try pressing enter.
+/ #
+/ # ip addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: eth0@if33: <BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN> mtu 1500 qdisc noqueue
+    link/ether de:c3:d9:7b:7c:c6 brd ff:ff:ff:ff:ff:ff
+    inet 10.244.0.35/16 brd 10.244.255.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::dcc3:d9ff:fe7b:7cc6/64 scope link
+       valid_lft forever preferred_lft forever
+/ # ^C
+
+/ # ping 10.244.0.30
+PING 10.244.0.30 (10.244.0.30): 56 data bytes
+64 bytes from 10.244.0.30: seq=0 ttl=64 time=10.613 ms
+64 bytes from 10.244.0.30: seq=1 ttl=64 time=0.251 ms
+64 bytes from 10.244.0.30: seq=2 ttl=64 time=0.191 ms
+64 bytes from 10.244.0.30: seq=3 ttl=64 time=0.174 ms
+64 bytes from 10.244.0.30: seq=4 ttl=64 time=0.134 ms
+64 bytes from 10.244.0.30: seq=5 ttl=64 time=0.284 ms
+64 bytes from 10.244.0.30: seq=6 ttl=64 time=0.174 ms
+^C
+--- 10.244.0.30 ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 0.134/1.688/10.613 ms
+/ # kubernetes   ClusterIP   10.96.0.1
+sh: kubernetes: not found
+/ # kubectl get svc
+sh: kubectl: not found
+/ # nslookup my-service
+Server:         10.96.0.10
+Address:        10.96.0.10:53
+
+** server can't find my-service.cluster.local: NXDOMAIN
+
+** server can't find my-service.default.svc.cluster.local: NXDOMAIN
+
+** server can't find my-service.svc.cluster.local: NXDOMAIN
+
+** server can't find my-service.default.svc.cluster.local: NXDOMAIN
+
+** server can't find my-service.cluster.local: NXDOMAIN
+
+** server can't find my-service.svc.cluster.local: NXDOMAIN
+
+/ # exit
+Session ended, resume using 'kubectl attach tracer -c tracer -i -t' command when the pod is running
